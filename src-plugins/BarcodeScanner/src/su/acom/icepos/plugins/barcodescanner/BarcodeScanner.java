@@ -14,7 +14,7 @@ import su.acom.icepos.commons.*;
 public class BarcodeScanner extends POSPlugin {
 
     @Override
-    public void register(POSCore posc) {
+    public void register(POSCore core) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 

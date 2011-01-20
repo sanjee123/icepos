@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package su.acom.icepos;
+package su.acom.icepos.test;
 
 import java.net.JarURLConnection;
 import java.net.URL;

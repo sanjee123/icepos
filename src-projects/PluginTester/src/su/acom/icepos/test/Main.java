@@ -3,20 +3,12 @@
  * and open the template in the editor.
  */
 
-package su.acom.icepos;
+package su.acom.icepos.test;
 
 /**
  *
  * @author az
  */
-
-import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import su.acom.icepos.plugins.samples.BarcodeScanner;
-import su.acom.icepos.plugins.samples.FiscalPrinter;
-import su.acom.icepos.core.Core;
-
 public class Main {
 
      /**
@@ -26,5 +18,6 @@ public class Main {
         Test t = new Test();
         t.run();
     }
+
 
 }
