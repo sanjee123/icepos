@@ -5,13 +5,12 @@
 
 package su.acom.icepos.common;
 
+import java.util.logging.Level;
+
 /**
  *
  * @author az
  */
-public abstract class POSCore {
-    
-    public abstract POSEventManager getEventManager();
-    public abstract POSLogger getLogger();
-
+public abstract class POSLogger {
+    public abstract void log(Level level, String msg, Throwable thrown);
 }

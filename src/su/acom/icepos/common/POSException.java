@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package su.acom.icepos.types;
+package su.acom.icepos.common;
 
 /**
  *

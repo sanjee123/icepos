@@ -5,8 +5,6 @@
 
 package su.acom.icepos.common;
 
-import su.acom.icepos.types.POSException;
-
 /**
  *
  * @author az

@@ -9,8 +9,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import su.acom.icepos.common.POSCore;
 import su.acom.icepos.common.POSPlugin;
-import su.acom.icepos.core.Core;
-import su.acom.icepos.types.POSException;
+import su.acom.icepos.common.POSException;
 
 /**
  *

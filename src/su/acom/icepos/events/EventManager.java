@@ -12,7 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import su.acom.icepos.common.POSEventManager;
 import su.acom.icepos.core.Core;
-import su.acom.icepos.types.POSException;
+import su.acom.icepos.common.POSException;
 
 /**
  *

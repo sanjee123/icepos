@@ -12,7 +12,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.jar.Attributes;
-import su.acom.icepos.types.POSException;
+import su.acom.icepos.common.POSException;
 
 /**
  *

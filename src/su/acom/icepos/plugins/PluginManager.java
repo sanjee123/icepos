@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import su.acom.icepos.types.POSException;
+import su.acom.icepos.common.POSException;
 
 /**
  *
@@ -38,8 +38,6 @@ public class PluginManager {
             System.out.println(ex.getLocalizedMessage());
             //Logger.getLogger(PluginManager.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-
     }
 
     public void loadAllPlugins() {
@@ -55,7 +53,6 @@ public class PluginManager {
             dir = new File("./plugins/").getCanonicalFile();
         } catch (IOException ex) {
             Logger.getLogger(PluginManager.class.getName()).log(Level.SEVERE, null, ex);
-
         }
 
         File[] pluginsList = dir.listFiles(filter);
