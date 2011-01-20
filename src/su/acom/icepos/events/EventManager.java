@@ -10,6 +10,7 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import su.acom.icepos.common.POSEventManager;
 import su.acom.icepos.core.Core;
 import su.acom.icepos.types.POSException;
 
@@ -17,7 +18,7 @@ import su.acom.icepos.types.POSException;
  *
  * @author az
  */
-public class EventManager {
+public class EventManager extends POSEventManager {
 
     private static HashMap<String, Event> m_eventMap = new HashMap<String, Event>();
 

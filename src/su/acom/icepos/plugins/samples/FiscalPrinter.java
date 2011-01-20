@@ -5,14 +5,15 @@
 
 package su.acom.icepos.plugins.samples;
 
-import su.acom.icepos.plugins.Plugin;
+import su.acom.icepos.common.POSCore;
+import su.acom.icepos.common.POSPlugin;
 import su.acom.icepos.types.Receipt;
 
 /**
  *
  * @author az
  */
-public class FiscalPrinter extends Plugin {
+public class FiscalPrinter extends POSPlugin {
 
     public FiscalPrinter() {
         m_name = "BarcodeScanner";
@@ -38,7 +39,7 @@ public class FiscalPrinter extends Plugin {
     //}
 
     @Override
-    public void register() {
+    public void register(POSCore core) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 

@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package su.acom.icepos.plugins;
+package su.acom.icepos.common;
 
 import java.io.File;
 import java.net.MalformedURLException;
@@ -16,7 +16,7 @@ import java.util.logging.Logger;
  *
  * @author az
  */
-public abstract class Plugin {
+public abstract class POSPlugin {
     /**
      * this method is called when plugin is loaded
      * if failed, core shows exception
@@ -43,8 +43,8 @@ public abstract class Plugin {
     /**
      *
      * This method is used to register events and prepare plugin to work
-     * 
+     * core - is a reference to core
      */
-    public abstract void register();
+    public abstract void register(POSCore core);
 
 }

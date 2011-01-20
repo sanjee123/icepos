@@ -23,6 +23,8 @@ public class Test {
 
     String name = "testClassName";
 
+    Core core = new Core();
+
     public void onScanBarcode1(String code) {
         System.out.println("Barcode scanned: " + code + " (" + name + ")" );
     }
@@ -31,8 +33,10 @@ public class Test {
         FiscalPrinter fp;
         BarcodeScanner s = new BarcodeScanner();
 
+        s.register(core);
+
         try {
-            Core.addEventListener(this, "onScanBarcode", "onScanBarcode1");
+            core.getEventManager().addEventListener(this, "onScanBarcode", "onScanBarcode1");
         } catch (Exception ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -42,7 +46,6 @@ public class Test {
         } catch (Exception ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
-
 
         s.scan();
 

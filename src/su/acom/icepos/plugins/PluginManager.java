@@ -24,6 +24,10 @@ import su.acom.icepos.types.POSException;
 public class PluginManager {
 
     private ArrayList <PluginFactory> m_plugins;
+
+    public PluginManager() {
+        m_plugins = new ArrayList<PluginFactory>();
+    }
     
     public void loadPlugin(File file) {
         PluginFactory pf;
@@ -39,8 +43,6 @@ public class PluginManager {
     }
 
     public void loadAllPlugins() {
-
-        m_plugins = new ArrayList<PluginFactory>();
 
         FilenameFilter filter = new FilenameFilter() {
             public boolean accept(File dir, String name) {
