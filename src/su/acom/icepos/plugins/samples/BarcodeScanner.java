@@ -7,9 +7,9 @@ package su.acom.icepos.plugins.samples;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import su.acom.icepos.common.POSCore;
-import su.acom.icepos.common.POSPlugin;
-import su.acom.icepos.common.POSException;
+import su.acom.icepos.commons.POSCore;
+import su.acom.icepos.commons.POSPlugin;
+import su.acom.icepos.commons.POSException;
 
 /**
  *

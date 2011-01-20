@@ -5,10 +5,17 @@
 
 package su.acom.icepos.plugins.barcodescanner;
 
+import su.acom.icepos.commons.*;
+
 /**
  *
  * @author az
  */
-public class BarcodeScanner {
+public class BarcodeScanner extends POSPlugin {
+
+    @Override
+    public void register(POSCore posc) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 
 }

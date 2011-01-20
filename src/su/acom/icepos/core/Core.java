@@ -5,9 +5,9 @@
 
 package su.acom.icepos.core;
 
-import su.acom.icepos.common.POSCore;
-import su.acom.icepos.common.POSLogger;
-import su.acom.icepos.common.logging.Logger;
+import su.acom.icepos.commons.POSCore;
+import su.acom.icepos.commons.POSLogger;
+import su.acom.icepos.logging.Logger;
 import su.acom.icepos.events.EventManager;
 
 /**

@@ -10,9 +10,9 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import su.acom.icepos.common.POSEventManager;
+import su.acom.icepos.commons.POSEventManager;
 import su.acom.icepos.core.Core;
-import su.acom.icepos.common.POSException;
+import su.acom.icepos.commons.POSException;
 
 /**
  *

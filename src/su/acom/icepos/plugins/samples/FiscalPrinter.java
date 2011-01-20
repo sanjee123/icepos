@@ -5,8 +5,8 @@
 
 package su.acom.icepos.plugins.samples;
 
-import su.acom.icepos.common.POSCore;
-import su.acom.icepos.common.POSPlugin;
+import su.acom.icepos.commons.POSCore;
+import su.acom.icepos.commons.POSPlugin;
 import su.acom.icepos.types.Receipt;
 
 /**

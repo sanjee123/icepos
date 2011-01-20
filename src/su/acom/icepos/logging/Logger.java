@@ -3,10 +3,10 @@
  * and open the template in the editor.
  */
 
-package su.acom.icepos.common.logging;
+package su.acom.icepos.logging;
 
 import java.util.logging.Level;
-import su.acom.icepos.common.POSLogger;
+import su.acom.icepos.commons.POSLogger;
 
 /**
  *
