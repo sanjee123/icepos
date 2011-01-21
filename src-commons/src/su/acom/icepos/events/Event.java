@@ -12,12 +12,16 @@ import java.util.ArrayList;
  * @author az
  */
 public class Event {
-    public Class[] classTypes;
+    private Class[] m_argTypes;
     public ArrayList <EventListener> listeners;
 
-    public Event(Class[] classTypes) {
-        this.classTypes = classTypes;
+    public Event(Class[] argTypes) {
+        this.m_argTypes = argTypes;
         this.listeners = new ArrayList<EventListener>();
+    }
+
+    public Class[] getArgTypes() {
+        return m_argTypes;
     }
 
     public void putListener(EventListener listener) {

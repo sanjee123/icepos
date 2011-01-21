@@ -36,13 +36,30 @@ public class EventManager extends POSEventManager {
     }
 
 
-    // TODO: move code which gets function pointer here from invokeEvent
     public void addEventListener(Object listener, String eventName, String listenerName) throws POSException {
         if (!m_eventMap.containsKey(eventName)) {
             throw new POSException("Event " + eventName + " not found!");
         }
 
-        m_eventMap.get(eventName).putListener(new EventListener(listener, listenerName));
+        Event e = m_eventMap.get(eventName);
+
+        // Looking for a listener function reference
+        Method m = null;
+        try {
+            m = listener.getClass().getMethod(listenerName, e.getArgTypes());
+        } catch (NoSuchMethodException ex) {
+            System.out.println("Listener " + listenerName + " not found!");
+            Logger.getLogger(EventManager.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SecurityException ex) {
+            System.out.println("Cannot access to this method " + listenerName);
+            Logger.getLogger(EventManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        if (m == null) {
+            return;
+        }
+
+        e.putListener(new EventListener(listener, listenerName, m));
 
     }
 
@@ -59,28 +76,24 @@ public class EventManager extends POSEventManager {
 
         // Now going thru all listeners and call them
         Event manager = m_eventMap.get(eventName);
-        Method m;
+        
 
         for (int i = 0; i < manager.listeners.size(); i++) {
+
+            EventListener listener = manager.listeners.get(i);
+            Method m = null;
+            m = listener.getListenerFunc();
+
             try {
-                EventListener listener = manager.listeners.get(i);
-                m = listener.object.getClass().getMethod(listener.handlerName, manager.classTypes);
-
-                try {
-                    m.invoke(listener.object, args);
-                } catch (IllegalAccessException ex) {
-                    Logger.getLogger(Core.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (IllegalArgumentException ex) {
-                    Logger.getLogger(Core.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (InvocationTargetException ex) {
-                    Logger.getLogger(Core.class.getName()).log(Level.SEVERE, null, ex);
-                }
-
-            } catch (NoSuchMethodException ex) {
-                Logger.getLogger(Core.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (SecurityException ex) {
-                Logger.getLogger(Core.class.getName()).log(Level.SEVERE, null, ex);
+                m.invoke(listener.object, args);
+            } catch (IllegalAccessException ex) {
+                Logger.getLogger(EventManager.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IllegalArgumentException ex) {
+                Logger.getLogger(EventManager.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (InvocationTargetException ex) {
+                Logger.getLogger(EventManager.class.getName()).log(Level.SEVERE, null, ex);
             }
+
 
         }
 

@@ -5,15 +5,24 @@
 
 package su.acom.icepos.events;
 
+import java.lang.reflect.Method;
+
 /**
  *
  * @author az
  */
 public class EventListener {
     public Object object;
-    public String handlerName;
-    public EventListener(Object object, String handlerName) {
+    private String handlerName;
+    private Method m_methodRef;
+
+    public EventListener(Object object, String handlerName, Method methodRef) {
         this.object      = object;
         this.handlerName = handlerName;
+        m_methodRef = methodRef;
+    }
+
+    public Method getListenerFunc() {
+        return m_methodRef;
     }
 }
