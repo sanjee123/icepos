@@ -68,6 +68,7 @@ public class PluginFactory {
             return null;
         }
         return attr != null ? attr.getValue("IcePlugin") : null;
+
     }
 
 

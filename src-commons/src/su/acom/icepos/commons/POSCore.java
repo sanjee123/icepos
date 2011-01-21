@@ -13,5 +13,6 @@ public abstract class POSCore {
     
     public abstract POSEventManager getEventManager();
     public abstract POSLogger getLogger();
+    public abstract POSPluginManager getPluginManager();
 
 }

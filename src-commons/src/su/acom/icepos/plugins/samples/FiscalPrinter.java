@@ -7,7 +7,7 @@ package su.acom.icepos.plugins.samples;
 
 import su.acom.icepos.commons.POSCore;
 import su.acom.icepos.commons.POSPlugin;
-import su.acom.icepos.types.Receipt;
+import su.acom.icepos.commons.POSReceipt;
 
 /**
  *
@@ -22,7 +22,7 @@ public class FiscalPrinter extends POSPlugin {
     }
 
 
-    public void printReceipt(Receipt r) {
+    public void printReceipt(POSReceipt r) {
         for (int i = 0; i < r.lines.length; i++) {
             System.out.println(r.lines[i]);
         }

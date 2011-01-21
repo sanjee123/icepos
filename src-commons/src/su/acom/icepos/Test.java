@@ -5,6 +5,7 @@
 
 package su.acom.icepos;
 
+import java.io.File;
 import java.net.JarURLConnection;
 import java.net.URL;
 import java.util.jar.Attributes;
@@ -49,8 +50,8 @@ public class Test {
 
         s.scan();
 
-        PluginManager m = new PluginManager();
-        m.loadAllPlugins();
+        PluginManager m = new PluginManager(core);
+        m.loadPluginsFromFolder(new File("../plugins/"));
         
         /*URL u = new URL("jar", "", url + "!/");
         JarURLConnection uc = (JarURLConnection)u.openConnection();

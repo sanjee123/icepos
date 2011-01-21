@@ -3,12 +3,12 @@
  * and open the template in the editor.
  */
 
-package su.acom.icepos.types;
+package su.acom.icepos.commons;
 
 /**
  *
  * @author az
  */
-public class Receipt {
+public class POSReceipt {
     public String[] lines;
 }

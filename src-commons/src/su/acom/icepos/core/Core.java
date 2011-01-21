@@ -7,8 +7,10 @@ package su.acom.icepos.core;
 
 import su.acom.icepos.commons.POSCore;
 import su.acom.icepos.commons.POSLogger;
+import su.acom.icepos.commons.POSPluginManager;
 import su.acom.icepos.logging.Logger;
 import su.acom.icepos.events.EventManager;
+import su.acom.icepos.plugins.PluginManager;
 
 /**
  *
@@ -20,6 +22,7 @@ public class Core extends POSCore {
 
     private EventManager m_eventManager = new EventManager();
     private Logger m_logger = new Logger();
+    private PluginManager m_pluginManager = new PluginManager(this);
 
     @Override
     public EventManager getEventManager() {
@@ -29,6 +32,11 @@ public class Core extends POSCore {
     @Override
     public POSLogger getLogger() {
         return m_logger;
+    }
+
+    @Override
+    public POSPluginManager getPluginManager() {
+        return m_pluginManager;
     }
 
 }

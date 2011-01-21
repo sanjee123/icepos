@@ -36,6 +36,7 @@ public class EventManager extends POSEventManager {
     }
 
 
+    // TODO: move code which gets function pointer here from invokeEvent
     public void addEventListener(Object listener, String eventName, String listenerName) throws POSException {
         if (!m_eventMap.containsKey(eventName)) {
             throw new POSException("Event " + eventName + " not found!");
