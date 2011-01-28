@@ -11,6 +11,7 @@ import java.net.URL;
 import java.util.jar.Attributes;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import su.acom.icepos.commons.POSPlugin;
 import su.acom.icepos.plugins.samples.BarcodeScanner;
 import su.acom.icepos.plugins.samples.FiscalPrinter;
 import su.acom.icepos.plugins.PluginManager;
@@ -34,6 +35,11 @@ public class Test {
         FiscalPrinter fp;
         BarcodeScanner s = new BarcodeScanner();
 
+        long startTime = System.nanoTime();
+        long startHeapSize = Runtime.getRuntime().freeMemory();
+
+        System.out.println("Free memory: " + startHeapSize);
+
         s.register(core);
 
         try {
@@ -52,6 +58,11 @@ public class Test {
 
         PluginManager m = new PluginManager(core);
         m.loadPluginsFromFolder(new File("../plugins/"));
+
+        for (int i = 0; i < m.getPluginCount(); i++) {
+            POSPlugin p = m.getPlugin(i);
+            int count = m.getInstanceCount(p);
+        }
         
         /*URL u = new URL("jar", "", url + "!/");
         JarURLConnection uc = (JarURLConnection)u.openConnection();

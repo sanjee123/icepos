@@ -14,6 +14,14 @@ import java.io.File;
 public abstract class POSPluginManager {
     public abstract void loadPlugin(File file);
     public abstract void loadPluginsFromFolder(File pluginFolder);
+
     public abstract int getPluginCount();
     public abstract POSPlugin getPlugin(int index);
+
+    // Plugin instances managment
+    public abstract int getInstanceCount(POSPlugin pluginClass);
+    public abstract Object getInstance(POSPlugin plugin, int index);
+
+
+
 }

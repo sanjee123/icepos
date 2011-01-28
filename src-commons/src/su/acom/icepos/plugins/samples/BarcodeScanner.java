@@ -28,7 +28,6 @@ public class BarcodeScanner extends POSPlugin {
         }
     }
 
-    @Override
     public void register(POSCore core) {
         m_core = core;
         try {
@@ -36,6 +35,21 @@ public class BarcodeScanner extends POSPlugin {
         } catch (POSException ex) {
             Logger.getLogger(BarcodeScanner.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    @Override
+    public POSPlugin createInstance(POSCore core) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void showSettings(Object instance) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public String getName() {
+        return "BarcodeScannerSample";
     }
 
 }

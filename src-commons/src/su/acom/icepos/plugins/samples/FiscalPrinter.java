@@ -38,9 +38,23 @@ public class FiscalPrinter extends POSPlugin {
         //throw new UnsupportedOperationException("Not supported yet.");
     //}
 
-    @Override
     public void register(POSCore core) {
         throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public POSPlugin createInstance(POSCore core) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void showSettings(Object instance) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public String getName() {
+        return "FiscalPrinterSample";
     }
 
 }

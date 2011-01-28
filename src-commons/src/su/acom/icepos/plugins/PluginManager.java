@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.FilenameFilter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import su.acom.icepos.commons.POSCore;
@@ -72,7 +73,7 @@ public class PluginManager extends POSPluginManager {
 
         System.out.println("---------------------------------------------");
         for (int i = 0; i < m_plugins.size(); i++) {
-            System.out.println("Loaded plugins: " + m_plugins.get(i).getPluginClassName());
+            System.out.println("Loaded plugins: " + m_plugins.get(i).getName());
         }
 
 
@@ -84,15 +85,32 @@ public class PluginManager extends POSPluginManager {
     }
 
     @Override
-    public POSPlugin getPlugin(int index) {
-        return new POSPlugin() {
-
-            @Override
-            public void register(POSCore core) {
-                throw new UnsupportedOperationException("Not supported yet.");
-            }
-        };
-        //return m_plugins.get(index);
+    public POSPlugin getPlugin(int id) {
+        if (id >= 0 && id <= m_plugins.size()) {
+            return m_plugins.get(id).getPlugin();
+        } else {
+            return null;
+        }
     }
+
+    @Override
+    public int getInstanceCount(POSPlugin pluginClass) {
+
+        PluginFactory buf = null;
+        for (int i = 0; i< m_plugins.size(); i++) {
+            buf = m_plugins.get(i);
+            if (buf.getPlugin() == pluginClass) {
+                return buf.getInstanceCount();
+            }
+        }
+
+        return 0;
+    }
+
+    @Override
+    public Object getInstance(POSPlugin plugin, int index) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
 
 }
