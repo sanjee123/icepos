@@ -13,8 +13,21 @@ import su.acom.icepos.commons.*;
  */
 public class BarcodeScanner extends POSPlugin {
 
+    public BarcodeScanner() {
+        System.err.println("Barcodescanner created!");
+    }
+    
+    public String getName() {
+        return "BSSan";
+    }
+
     @Override
-    public void register(POSCore core) {
+    public Object createInstance(POSCore posc) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void showSettings(Object o) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
