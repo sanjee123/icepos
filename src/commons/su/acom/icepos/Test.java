@@ -7,6 +7,8 @@ package su.acom.icepos;
 
 import java.io.File;
 import java.util.ArrayList;
+import org.apache.log4j.lf5.LF5Appender;
+import su.acom.icepos.commons.POSAppender;
 import su.acom.icepos.commons.POSPlugin;
 import su.acom.icepos.plugins.samples.BarcodeScanner;
 import su.acom.icepos.plugins.samples.FiscalPrinter;
@@ -35,7 +37,6 @@ public class Test {
     public void run() {
 
 
-        //LF5Appender lf = new LF5Appender();
         //log.getRootLogger().addAppender(lf);
 
 
@@ -65,9 +66,14 @@ public class Test {
         s.scan();
 
         // Attaching out appender to all loggers
+        LF5Appender lf5 = new LF5Appender();
 
         ArrayList<POSLogger> l = POSLogger.getLoggers();
-        l.contains(l);
+        int count = l.size();
+        for (int i = 0; i < count; i++) {
+            l.get(i).addAppender(lf5);
+        }
+
 
 
         PluginManager m = new PluginManager(core);
@@ -75,7 +81,7 @@ public class Test {
 
         for (int i = 0; i < m.getPluginCount(); i++) {
             POSPlugin p = m.getPlugin(i);
-            int count = m.getInstanceCount(p);
+            count = m.getInstanceCount(p);
         }
         
         /*URL u = new URL("jar", "", url + "!/");

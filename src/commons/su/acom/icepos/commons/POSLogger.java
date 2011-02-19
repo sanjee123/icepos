@@ -8,6 +8,7 @@ package su.acom.icepos.commons;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
+import org.apache.log4j.Appender;
 import org.apache.log4j.ConsoleAppender;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PatternLayout;
@@ -33,6 +34,13 @@ public class POSLogger {
         m_consoleAppender.setLayout(new PatternLayout("%-5p [%t]: %m%n"));
     }
 
+    public void addAppender(POSAppender appender) {
+        m_log.addAppender((Appender)appender);
+    }
+
+    public void addAppender(Appender nappender) {
+        m_log.addAppender(nappender);
+    }
 
     public POSLogger(String name) {
         m_log = Logger.getLogger(name);
