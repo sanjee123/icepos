@@ -5,8 +5,6 @@
 
 package su.acom.icepos.commons;
 
-import org.apache.log4j.Logger;
-
 /**
  *
  * @author az
@@ -17,12 +15,12 @@ public abstract class POSCore {
     public abstract POSPluginManager getPluginManager();
 
 
-    public abstract void addAppenders(Logger log);
+    /*public abstract void addAppenders(Logger log);
 
     public static Logger getLogger(Class clazz, POSCore core) {
         Logger log = Logger.getLogger(clazz);
         core.addAppenders(log);
         return log;
-    }
-
+    }*/
+    
 }

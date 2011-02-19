@@ -16,6 +16,7 @@ import java.util.jar.Attributes;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import su.acom.icepos.commons.POSException;
+import su.acom.icepos.commons.POSLogger;
 import su.acom.icepos.commons.POSPlugin;
 
 /**
@@ -30,6 +31,8 @@ public class PluginFactory {
     private String m_fileName = "";
     private ArrayList<Object> m_instances;
     private POSPlugin m_plugin;
+    
+    POSLogger log = POSLogger.getLogger(PluginFactory.class);
 
 
     public PluginFactory(File file) throws POSException {
@@ -39,7 +42,7 @@ public class PluginFactory {
             m_url = new URL("jar", "", file.toURI() + "!/");
             //m_url = file.toURI().toURL();
             //m_fileName = file.getName();
-            System.out.println("Loading plugin from file (" + m_fileName + ")");
+            log.info("Loading plugin from file (" + m_fileName + ")");
         } catch (MalformedURLException ex) {
             throw new POSException("Cannot convert " + m_fileName + " to URL. Plugin cannot be loaded!");
         }
@@ -49,7 +52,7 @@ public class PluginFactory {
             m_connection = (JarURLConnection) m_url.openConnection();
             Attributes attr = m_connection.getAttributes();
         } catch (IOException ex) {
-            System.out.println("failed (" + ex.getMessage() + ")");
+            log.info("failed (" + ex.getMessage() + ")");
             throw new POSException(ex.getMessage());
         }
         System.out.println("done!");
@@ -134,6 +137,5 @@ public class PluginFactory {
     public POSPlugin getPlugin() {
         return m_plugin;
     }
-
 
 }

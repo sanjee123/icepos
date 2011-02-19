@@ -9,9 +9,9 @@ import java.io.File;
 import java.io.FilenameFilter;
 import java.io.IOException;
 import java.util.ArrayList;
-import org.apache.log4j.Logger;
 import su.acom.icepos.commons.POSCore;
 import su.acom.icepos.commons.POSException;
+import su.acom.icepos.commons.POSLogger;
 import su.acom.icepos.commons.POSPlugin;
 import su.acom.icepos.commons.POSPluginManager;
 
@@ -25,7 +25,7 @@ import su.acom.icepos.commons.POSPluginManager;
 
 public class PluginManager extends POSPluginManager {
 
-    private static Logger log;
+    private static POSLogger log = POSLogger.getLogger(PluginManager.class);
 
     private ArrayList <PluginFactory> m_plugins;
     private POSCore m_core;
@@ -33,7 +33,6 @@ public class PluginManager extends POSPluginManager {
     public PluginManager(POSCore core) {
         m_plugins = new ArrayList<PluginFactory>();
         m_core = core;
-        log = POSCore.getLogger(PluginManager.class, m_core);
     }
 
     public void loadPlugin(File file) {

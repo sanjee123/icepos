@@ -11,8 +11,9 @@ import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import su.acom.icepos.commons.POSEventManager;
-import su.acom.icepos.core.Core;
 import su.acom.icepos.commons.POSException;
+
+// TODO: rewrite logging
 
 /**
  *

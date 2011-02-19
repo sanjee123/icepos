@@ -6,13 +6,13 @@
 package su.acom.icepos;
 
 import java.io.File;
+import java.util.ArrayList;
 import su.acom.icepos.commons.POSPlugin;
 import su.acom.icepos.plugins.samples.BarcodeScanner;
 import su.acom.icepos.plugins.samples.FiscalPrinter;
 import su.acom.icepos.plugins.PluginManager;
 import su.acom.icepos.core.Core;
-import org.apache.log4j.Logger;
-import su.acom.icepos.commons.POSCore;
+import su.acom.icepos.commons.POSLogger;
 
 /**
  *
@@ -26,7 +26,7 @@ public class Test {
 
     private Core core = new Core();
 
-    private static Logger log;
+    private static POSLogger log = POSLogger.getLogger(Test.class);
 
     public void onScanBarcode1(String code) {
         System.out.println("Barcode scanned: " + code + " (" + name + ")" );
@@ -34,7 +34,10 @@ public class Test {
 
     public void run() {
 
-        log = POSCore.getLogger(Test.class, core);
+
+        //LF5Appender lf = new LF5Appender();
+        //log.getRootLogger().addAppender(lf);
+
 
         FiscalPrinter fp;
         BarcodeScanner s = new BarcodeScanner();
@@ -43,6 +46,7 @@ public class Test {
         long startHeapSize = Runtime.getRuntime().freeMemory();
 
         System.out.println("Free memory: " + startHeapSize);
+        System.out.println("Processors: " + Runtime.getRuntime().availableProcessors());
 
         s.register(core);
 
@@ -60,6 +64,12 @@ public class Test {
 
         s.scan();
 
+        // Attaching out appender to all loggers
+
+        ArrayList<POSLogger> l = POSLogger.getLoggers();
+        l.contains(l);
+
+
         PluginManager m = new PluginManager(core);
         m.loadPluginsFromFolder(new File("../plugins/"));
 
@@ -72,6 +82,9 @@ public class Test {
         JarURLConnection uc = (JarURLConnection)u.openConnection();
         Attributes att= uc.getMainAttributes();
         Attributes.Name.*/
+
+
+
 
     }
 
